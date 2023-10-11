@@ -8,7 +8,14 @@
         Title="Admin_Landing_Page" Height="450" Width="800">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="24,37,0,0" TextWrapping="NoWrap" Text="Kamva Cloud Technologies Admin" FontSize="20" VerticalAlignment="Top"/>
-        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="39,10,0,0" VerticalAlignment="Top" Click="backButton_Click"/>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="24,12,0,0" VerticalAlignment="Top" Click="backButton_Click"/>
+        <ComboBox Name="dropMenu"  HorizontalAlignment="Left" Margin="24,87,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,71,0,0" TextWrapping="Wrap" FontSize="9" Text="Select Database" VerticalAlignment="Top"/>
+        <Button Content="Add Record" HorizontalAlignment="Left" Margin="345,130,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <Button Content="Create New" HorizontalAlignment="Left" Margin="345,190,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <Button Content="Edit Scheme" HorizontalAlignment="Left" Margin="345,250,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <Button Content="View Records" HorizontalAlignment="Left" Margin="345,310,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <Button Content="Log Out" HorizontalAlignment="Left" Margin="345,370,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
 
     </Grid>
 </Window>
