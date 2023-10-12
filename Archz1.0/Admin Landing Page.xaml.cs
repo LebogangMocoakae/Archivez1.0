@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Identity.Client;
 
 namespace Archz1._0
 {
@@ -23,7 +24,7 @@ namespace Archz1._0
     {
 
         string connectionString = "Server=tcp:kamvaarchztest.database.windows.net,1433;Initial Catalog=;Persist Security Info=False;User ID=lebogang@kamvacloud.co.za;Password=#Kamo13137;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
-
+        
 
 
 
@@ -31,6 +32,9 @@ namespace Archz1._0
         {
             InitializeComponent();
             LoginUser.Text ="Logged in User: "+ username;
+
+       
+            string loggedinUser=username;
 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -69,6 +73,18 @@ namespace Archz1._0
 
             MessageBox.Show(dropMenu.SelectedItem.ToString());
 
+        }
+
+        private void btnAddRecord_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            Add_Record add_Record = new Add_Record();
+            add_Record.Show();
+            this.Close();
+            
+
+            
         }
     }
 }
