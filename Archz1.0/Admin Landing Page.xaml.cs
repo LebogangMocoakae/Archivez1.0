@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,40 @@ namespace Archz1._0
     /// </summary>
     public partial class Admin_Landing_Page : Window
     {
-        public Admin_Landing_Page()
+
+        string connectionString = "Server=tcp:kamvaarchztest.database.windows.net,1433;Initial Catalog=;Persist Security Info=False;User ID=lebogang@kamvacloud.co.za;Password=#Kamo13137;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
+
+
+
+
+        public Admin_Landing_Page(string username)
         {
             InitializeComponent();
+            LoginUser.Text ="Logged in User: "+ username;
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    DataTable databases = connection.GetSchema("Databases");
+
+                    // Clear the ComboBox to avoid duplicates
+                    dropMenu.Items.Clear();
+
+                    // Populate the ComboBox with database names
+                    foreach (DataRow row in databases.Rows)
+                    {
+                        string databaseName = row["database_name"].ToString();
+                        dropMenu.Items.Add(databaseName);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -31,6 +64,11 @@ namespace Archz1._0
             this.Close();
         }
 
-       
+        private void dropMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            MessageBox.Show(dropMenu.SelectedItem.ToString());
+
+        }
     }
 }

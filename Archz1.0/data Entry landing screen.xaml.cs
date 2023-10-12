@@ -19,9 +19,11 @@ namespace Archz1._0
     /// </summary>
     public partial class data_Entry_landing_screen : Window
     {
-        public data_Entry_landing_screen()
+        public data_Entry_landing_screen(string username)
         {
             InitializeComponent();
+
+            MessageBox.Show("User logged in: " + username);
         }
     }
 }
