@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Printing;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Data;
+using Microsoft.Data.SqlClient;
 
 namespace Archz1._0
 {
@@ -23,6 +12,7 @@ namespace Archz1._0
     public partial class MainWindow : Window
 
     {
+        
         public string user = "", pass = "";
 
         public MainWindow()
@@ -30,9 +20,9 @@ namespace Archz1._0
             InitializeComponent();
         }
 
-       
 
-       
+
+
 
         private void userName_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -40,28 +30,40 @@ namespace Archz1._0
         }
         private void password_TextChanged(object sender, TextChangedEventArgs e)
         {
-            pass=password.Text;
+            pass = password.Text;
         }
 
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if(user == string.Empty || pass == string.Empty)
+            if (user == string.Empty || pass == string.Empty)
             {
                 MessageBox.Show("Please fill in all the boxes!!");
             }
             else
             {
-                MessageBox.Show("User Name: " + user + "\nPassword: " + pass);
-                 
-                Admin_Landing_Page n = new Admin_Landing_Page();
-                n.Show();
-                this.Close();
-            }            
-            
 
-            
+                string connectionString = "Server=tcp:kamvaarchztest.database.windows.net,1433;Initial Catalog=AccessUsers;Persist Security Info=False;User ID=lebogang@kamvacloud.co.za;Password=#Kamo13137;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
+
+                //string connectionString = "Server=kamvaarchztest.database.windows.net;Database=AccessUsers;User Id=Lebogang@kamvacloud.co.za@kamvaarchztest;Password=#Kamo1377;Trusted_Connection=True;Connection Timeout=60;";
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Open();
+                  
+
+                MessageBox.Show("Connection to SQL Server is open.");
+
+                //MessageBox.Show("User Name: " + user + "\nPassword: " + pass);
+
+                //Admin_Landing_Page n = new Admin_Landing_Page();
+                //n.Show();
+                //this.Close();
+            }
+
+
+
+            }
+
         }
-
     }
-}
+
+

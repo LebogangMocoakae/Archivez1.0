@@ -15,22 +15,13 @@ using System.Windows.Shapes;
 namespace Archz1._0
 {
     /// <summary>
-    /// Interaction logic for Admin_Landing_Page.xaml
+    /// Interaction logic for data_Entry_landing_screen.xaml
     /// </summary>
-    public partial class Admin_Landing_Page : Window
+    public partial class data_Entry_landing_screen : Window
     {
-        public Admin_Landing_Page()
+        public data_Entry_landing_screen()
         {
             InitializeComponent();
         }
-
-        private void backButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow n = new MainWindow();
-            n.Show();
-            this.Close();
-        }
-
-       
     }
 }
