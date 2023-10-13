@@ -19,14 +19,16 @@ namespace Archz1._0
     /// </summary>
     public partial class Add_Record : Window
     {
-        public Add_Record()
+        public Add_Record(string user, string database)
         {
             InitializeComponent();
+            LoginUser.Text = "Logged in user: "+ user;
+            selected_database.Text = "Selected Database: " + database;
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

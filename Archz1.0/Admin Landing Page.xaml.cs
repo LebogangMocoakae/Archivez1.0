@@ -24,14 +24,16 @@ namespace Archz1._0
     {
 
         string connectionString = "Server=tcp:kamvaarchztest.database.windows.net,1433;Initial Catalog=;Persist Security Info=False;User ID=lebogang@kamvacloud.co.za;Password=#Kamo13137;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
-        
+        string passuser;
+        string selectedDatabaseName;
 
 
 
         public Admin_Landing_Page(string username)
         {
             InitializeComponent();
-            LoginUser.Text ="Logged in User: "+ username;
+            LoginUser.Text = "Logged in User: " + username;
+            returnuserName(username);
 
        
             string loggedinUser=username;
@@ -72,14 +74,21 @@ namespace Archz1._0
         {
 
             MessageBox.Show(dropMenu.SelectedItem.ToString());
+            selectedDatabaseName = dropMenu.SelectedItem.ToString();
 
+        }
+
+        public void returnuserName(string name)
+        {
+            passuser = name;
+            
         }
 
         private void btnAddRecord_Click(object sender, RoutedEventArgs e)
         {
 
 
-            Add_Record add_Record = new Add_Record();
+            Add_Record add_Record = new Add_Record(passuser,selectedDatabaseName);
             add_Record.Show();
             this.Close();
             
