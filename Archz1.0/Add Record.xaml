@@ -11,18 +11,18 @@
         <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="24,12,0,0" VerticalAlignment="Top" Click="backButton_Click"/>
         <TextBlock x:Name="selected_database" HorizontalAlignment="Left" Margin="24,82,0,0" TextWrapping="NoWrap" FontSize="9" Text="Selected Database" VerticalAlignment="Top"/>
         <TextBlock x:Name="LoginUser" HorizontalAlignment="Left" Margin="24,65,0,0" TextWrapping="NoWrap" FontSize="14" Text="user" VerticalAlignment="Top" Width="300"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,120,0,0" TextWrapping="Wrap" TextAlignment="Center"  VerticalAlignment="Top" Width="291" Tag="name" ToolTip="Name"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,160,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,200,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,240,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,280,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
-        <TextBox HorizontalAlignment="Center" Margin="0,320,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="292" Height="68"/>
-        <Button Content="SUBMIT" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Center" Margin="0,120,0,0" TextWrapping="Wrap" TextAlignment="Center"  VerticalAlignment="Top" Width="291" Tag="name"/>
+        <TextBox x:Name="txtSurname" HorizontalAlignment="Center" Margin="0,160,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Center" Margin="0,200,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
+        <TextBox x:Name="txtGender" HorizontalAlignment="Center" Margin="0,240,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
+        <TextBox x:Name="txtRace" HorizontalAlignment="Center" Margin="0,280,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
+        <TextBox x:Name="txtVisitReason" HorizontalAlignment="Center" Margin="0,320,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="292" Height="68"/>
+        <Button Content="SUBMIT" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" Text="NAME" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,140,0,0" TextWrapping="Wrap" Text="SURNAME" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,180,0,0" TextWrapping="Wrap" Text="ID NUMBER" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,220,0,0" TextWrapping="Wrap" Text="GENDER" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,260,0,0" TextWrapping="Wrap" Text="SURNAME" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,260,0,0" TextWrapping="Wrap" Text="RACE" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,300,0,0" TextWrapping="Wrap" Text="REASON FOR VISIT" VerticalAlignment="Top"/>
        
 
