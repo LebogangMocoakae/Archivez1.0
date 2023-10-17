@@ -95,5 +95,17 @@ namespace Archz1._0
 
             
         }
+
+        private void btnEditRecord_Click(object sender, RoutedEventArgs e)
+        {
+            Edit_Record n = new Edit_Record();
+            n.Show();
+        }
+
+        private void btnViewRecord_Click(object sender, RoutedEventArgs e)
+        {
+            View_Records n = new View_Records();
+            n.Show();
+        }
     }
 }
