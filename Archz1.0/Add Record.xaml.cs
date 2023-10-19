@@ -1,7 +1,11 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.Win32;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +28,12 @@ namespace Archz1._0
 
         public string connectionString = "Server=tcp:kamvaarchztest.database.windows.net,1433;Initial Catalog=TestDatabase;Persist Security Info=False;User ID=lebogang@kamvacloud.co.za;Password=#Kamo13137;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
 
+
+        string storageAccountName = "teststorelk";
+        string storageAccountKey = "XJk7EfgIJCCsWSMgJCZAzSKWvVYLp+Lq8gfimrdd0r8uNS5jeaGD0LEdn0vrW1DGF+52D5KuujiF+AStsnh1Dw==";
+        string containerName = "testarch";
+        string selectedFilePath = string.Empty;
+        string filename = string.Empty;
 
         public Add_Record(string user, string database)
         {
@@ -68,6 +78,7 @@ namespace Archz1._0
                         command.ExecuteNonQuery();
 
                         MessageBox.Show("Complete");
+                        UploadFileToBlobStorageAsync(selectedFilePath, filename);
                     }
                     connection.Close();
 
@@ -81,11 +92,63 @@ namespace Archz1._0
            
             
             MessageBox.Show(connectionString);
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            addUser();
+            if (SelectedFileLabel.Text == "")
+            {
+                MessageBox.Show("Please upload file!");
+            }
+            else
+            {
+                addUser();
+                //UploadFileToBlobStorageAsync(selectedFilePath, filename);
+            }
+        }
+
+
+
+
+        private async Task UploadFileToBlobStorageAsync(string filePath, string blobName)
+        {
+            string storageConnectionString = $"DefaultEndpointsProtocol=https;AccountName={storageAccountName};AccountKey={storageAccountKey};EndpointSuffix=core.windows.net";
+
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+            try
+            {
+                await container.CreateIfNotExistsAsync();
+
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
+
+                using (var fileStream = File.OpenRead(filePath))
+                {
+                    await blockBlob.UploadFromStreamAsync(fileStream);
+                }
+
+                MessageBox.Show("File uploaded to Azure Blob Storage.");
+            }
+            catch (StorageException ex)
+            {
+                MessageBox.Show($"Error uploading file to Azure Blob Storage: {ex.Message}");
+            }
+        }
+
+
+
+        private void btnUploadFiles_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                selectedFilePath = openFileDialog.FileName;
+                SelectedFileLabel.Text = selectedFilePath;
+                filename= openFileDialog.FileName;
+            }
         }
     }
 }
