@@ -17,15 +17,15 @@
         <TextBox x:Name="txtGender" HorizontalAlignment="Center" Margin="0,240,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
         <TextBox x:Name="txtRace" HorizontalAlignment="Center" Margin="0,280,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
         <TextBox x:Name="txtVisitReason" HorizontalAlignment="Center" Margin="0,320,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="292" Height="68"/>
-        <Button Content="SUBMIT" HorizontalAlignment="Left" Margin="444,400,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="SUBMIT" HorizontalAlignment="Left" Margin="383,404,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" Text="NAME" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,140,0,0" TextWrapping="Wrap" Text="SURNAME" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,180,0,0" TextWrapping="Wrap" Text="ID NUMBER" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,220,0,0" TextWrapping="Wrap" Text="GENDER" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,260,0,0" TextWrapping="Wrap" Text="RACE" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,300,0,0" TextWrapping="Wrap" Text="REASON FOR VISIT" VerticalAlignment="Top"/>
-        <Button x:Name="btnUploadFiles" Content="upload files" HorizontalAlignment="Left" Margin="303,400,0,0" VerticalAlignment="Top" Click ="btnUploadFiles_Click" />
-        <TextBlock x:Name="SelectedFileLabel" IsEnabled="False"  HorizontalAlignment="Left" Margin="174,402,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Height="22" Width="96"/>
+        <Button x:Name="btnUploadFiles" Content="upload files" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top" Click ="btnUploadFiles_Click" />
+        <TextBlock x:Name="SelectedFileLabel" IsEnabled="False"  HorizontalAlignment="Left" Margin="24,167,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Height="22" Width="96"/>
 
 
     </Grid>

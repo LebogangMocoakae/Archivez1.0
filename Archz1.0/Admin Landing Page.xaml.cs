@@ -90,9 +90,6 @@ namespace Archz1._0
 
             Add_Record add_Record = new Add_Record(passuser,selectedDatabaseName);
             add_Record.Show();
-            this.Close();
-            
-
             
         }
 

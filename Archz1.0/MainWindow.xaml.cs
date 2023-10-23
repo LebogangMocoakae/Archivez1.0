@@ -29,8 +29,6 @@ namespace Archz1._0
         {
             InitializeComponent();
 
-          
-            //MessageBox.Show("Connection to SQL Server is open.");
         }
 
 
@@ -59,6 +57,11 @@ namespace Archz1._0
                 string passwordQuery = "SELECT Password FROM users where Password = @pass";
                 string userTypeQuery = "SELECT UserType FROM users where Username = @user";
                 SqlConnection connection = new SqlConnection(connectionString);
+
+                Loading_window loadingWindow = new Loading_window();
+                loadingWindow.Owner = this; // Set the owner to the main window
+                loadingWindow.Show();
+
                 connection.Open();
 
 
@@ -85,44 +88,45 @@ namespace Archz1._0
                 SqlDataReader password_reader = passwordCommand.ExecuteReader();
                 SqlDataReader usertype_reader = userTypeCommand.ExecuteReader();
 
+
+                
+
                 while (reader.Read())
                 {
                     databaseName = reader.GetString(0);
-                    MessageBox.Show(databaseName);
+                   
                 }
                 while(password_reader.Read())
                 {
                     databasePassword = password_reader.GetString(0);
-                    MessageBox.Show(databasePassword);
+                    
                 }
                 while (usertype_reader.Read())
                 {
                     user_type = usertype_reader.GetString(0);
-                    MessageBox.Show("User type: " + user_type);
+                    
                 }
 
 
 
                 if (databaseName.Equals(user))
                 {
-                    MessageBox.Show("User found");
-                    MessageBox.Show("User type: " + user_type);
+                    //MessageBox.Show("User found");
+                    //MessageBox.Show("User type: " + user_type);
 
                     if (databasePassword.Equals(pass))
                         {
-                        MessageBox.Show("Password correct");
+                      //  MessageBox.Show("Password correct");
 
                         if(user_type.Equals("Admin"))
                         {
                             Admin_Landing_Page n = new Admin_Landing_Page(databaseName);
+                            loadingWindow.Close();
                             n.Show();
                             this.Close();
                         }
                         else
                         {
-                            
-
-                            MessageBox.Show("user not admin");
 
                             data_Entry_landing_screen n = new data_Entry_landing_screen(databaseName);
                             this.Close();

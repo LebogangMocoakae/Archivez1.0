@@ -89,10 +89,8 @@ namespace Archz1._0
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-           
             
-            MessageBox.Show(connectionString);
-           
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

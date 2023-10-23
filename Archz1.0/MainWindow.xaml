@@ -15,5 +15,10 @@
         <TextBox x:Name="password" HorizontalAlignment="Center" Margin="0,270,0,0" TextAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="200" TextChanged="password_TextChanged"/>
         <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Center" Margin="0,315,0,0" VerticalAlignment="Top" Width="90" Height="30" Click="btnSubmit_Click"/>
 
+       
+             
+           
+        
+
     </Grid>
 </Window>
