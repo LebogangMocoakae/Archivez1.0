@@ -22,8 +22,8 @@ namespace Archz1._0
     /// </summary>
     public partial class Admin_Landing_Page : Window
     {
-
-        string connectionString = "Server=tcp:kamvaarchztest.database.windows.net,1433;Initial Catalog=;Persist Security Info=False;User ID=lebogang@kamvacloud.co.za;Password=#Kamo13137;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
+        strings strings = new strings();
+        string connectionStringDatabases;
         string passuser;
         string selectedDatabaseName;
 
@@ -32,6 +32,7 @@ namespace Archz1._0
         public Admin_Landing_Page(string username)
         {
             InitializeComponent();
+            connectionStringDatabases = strings.connectionStringDatabases;
             LoginUser.Text = "Logged in User: " + username;
             returnuserName(username);
 
@@ -39,7 +40,7 @@ namespace Archz1._0
             string loggedinUser=username;
 
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionStringDatabases))
             {
                 try
                 {
@@ -58,7 +59,7 @@ namespace Archz1._0
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error:here " + ex.Message);
                 }
             }
         }

@@ -14,6 +14,7 @@
         <TextBox x:Name="txtBox" HorizontalAlignment="Left" Margin="30,120,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120"/>
         <Button x:Name="Search" Content="SEARCH" HorizontalAlignment="Left" Margin="48,154,0,0" VerticalAlignment="Top" Width="65" Click="Search_Click"/>
         <DataGrid x:Name="datagrid" AutoGenerateColumns="True"  RenderTransformOrigin="0.499,0.566" Margin="182,0,0,0"/>
+        <Button x:Name="btnViewFile" Content="view file" HorizontalAlignment="Left" Margin="57,203,0,0" VerticalAlignment="Top" Click="btnViewFile_Click"/>
 
     </Grid>
 </Window>

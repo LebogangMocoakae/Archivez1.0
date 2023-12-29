@@ -13,6 +13,8 @@ namespace Archz1._0
     public partial class MainWindow : Window
 
     {
+        strings strings = new strings();
+
         
         public string user = "", pass = "";
 
@@ -20,7 +22,7 @@ namespace Archz1._0
         public string databasePassword = "", user_type = "";
 
 
-        public string connectionString = "Server=tcp:kamvaarchztest.database.windows.net,1433;Initial Catalog=AccessUsers;Persist Security Info=False;User ID=lebogang@kamvacloud.co.za;Password=#Kamo13137;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
+        public string connectionString;
 
         //string connectionString = "Server=kamvaarchztest.database.windows.net;Database=AccessUsers;User Id=Lebogang@kamvacloud.co.za@kamvaarchztest;Password=#Kamo1377;Trusted_Connection=True;Connection Timeout=60;";
        
@@ -28,7 +30,7 @@ namespace Archz1._0
         public MainWindow()
         {
             InitializeComponent();
-
+            connectionString = strings.connectionString;
         }
 
 
@@ -47,6 +49,7 @@ namespace Archz1._0
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+
             if (user == string.Empty || pass == string.Empty)
             {
                 MessageBox.Show("Please fill in all the boxes!!");
@@ -82,29 +85,29 @@ namespace Archz1._0
                 userTypeCommand.Parameters.Add(new SqlParameter("@user", SqlDbType.NVarChar, 50)); // Adjust the data type and size
                 userTypeCommand.Parameters["@user"].Value = user;
 
-               
+
 
                 SqlDataReader reader = command.ExecuteReader();
                 SqlDataReader password_reader = passwordCommand.ExecuteReader();
                 SqlDataReader usertype_reader = userTypeCommand.ExecuteReader();
 
 
-                
+
 
                 while (reader.Read())
                 {
                     databaseName = reader.GetString(0);
-                   
+
                 }
-                while(password_reader.Read())
+                while (password_reader.Read())
                 {
                     databasePassword = password_reader.GetString(0);
-                    
+
                 }
                 while (usertype_reader.Read())
                 {
                     user_type = usertype_reader.GetString(0);
-                    
+
                 }
 
 
@@ -115,10 +118,10 @@ namespace Archz1._0
                     //MessageBox.Show("User type: " + user_type);
 
                     if (databasePassword.Equals(pass))
-                        {
-                      //  MessageBox.Show("Password correct");
+                    {
+                        //  MessageBox.Show("Password correct");
 
-                        if(user_type.Equals("Admin"))
+                        if (user_type.Equals("Admin"))
                         {
                             Admin_Landing_Page n = new Admin_Landing_Page(databaseName);
                             loadingWindow.Close();
@@ -131,11 +134,11 @@ namespace Archz1._0
                             data_Entry_landing_screen n = new data_Entry_landing_screen(databaseName);
                             this.Close();
                             n.Show();
-                            
+
                         }
 
 
-                        
+
 
                     }
                     else
@@ -148,9 +151,9 @@ namespace Archz1._0
                 {
                     MessageBox.Show("User not found");
                 }
-                 
-                
-                
+
+
+
 
 
                 //MessageBox.Show("User Name: " + user + "\nPassword: " + pass);
@@ -162,9 +165,10 @@ namespace Archz1._0
 
 
 
-            }
-
         }
+
     }
+}
+
 
 

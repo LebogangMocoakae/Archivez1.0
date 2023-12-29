@@ -11,6 +11,7 @@ using Azure.Storage.Blobs.Models;
 using System;
 using Microsoft.Win32;
 using System.IO;
+using System.Diagnostics;
 
 namespace Archz1._0
 {
@@ -19,26 +20,42 @@ namespace Archz1._0
     /// </summary>
     public partial class View_Records : Window
     {
-       
 
-        
-        static string connectionString = "Server=tcp:kamvaarchztest.database.windows.net,1433;Initial Catalog=TestDatabase;Persist Security Info=False;User ID=lebogang@kamvacloud.co.za;Password=#Kamo13137;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
-        SqlConnection connection = new SqlConnection(connectionString);
+        strings strings = new strings();
+        string connectionString;
+
+
+
+
         string radioInfo = "";
+        string userID = "";
+        string link = "";
+        string filepath = "C:\\records\\user.csv";
         public View_Records()
         {
             InitializeComponent();
+            connectionString = strings.connectionStringClients;
 
-            connection.Open();
+
+
+        }
+
+        private void dataAdapter()
+        {
+
         }
 
         private void getPatients()
         {
+            SqlConnection connection = new SqlConnection(connectionString);
+            
             if (radioInfo == "ID NUMBER")
             {
+                
                 string id = txtBox.Text;
+                userID = id; ;
                 string value = "";
-                string selectQuery = "SELECT * FROM Patients WHERE PatientID = @PatientID";
+                string selectQuery = "SELECT * FROM Clients WHERE PatientID = @PatientID";
                 SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
                 selectCommand.Parameters.AddWithValue("@PatientID", id);
 
@@ -58,8 +75,9 @@ namespace Archz1._0
 
             if (radioInfo == "FIRSTNAME")
             {
+                //SqlConnection connection = new SqlConnection(connectionString);
                 string firstName = txtBox.Text;
-                string selectQuery = "SELECT * FROM TeastDatabase WHERE FirstName = @FirstName";
+                string selectQuery = "SELECT * FROM Clients WHERE FirstName = @FirstName";
                 SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
 
 
@@ -67,10 +85,17 @@ namespace Archz1._0
                 selectCommand.Parameters.AddWithValue("@Firstname", firstName);
 
                 MessageBox.Show("Firstname Search: " + firstName);
+
+
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand);
+                sqlDataAdapter.Fill(dataTable);
+                datagrid.ItemsSource = dataTable.DefaultView;
             }
 
             if (radioInfo == "SURNAME")
             {
+                //SqlConnection connection = new SqlConnection(connectionString);
                 string surname = txtBox.Text;
                 string selectQuery = "SELECT * FROM TeastDatabase WHERE surname = @surname";
                 SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
@@ -81,11 +106,62 @@ namespace Archz1._0
 
                 MessageBox.Show("surname Search: " + surname);
             }
+            if (txtBox.Text=="*")
+            {
+                //SqlConnection connection = new SqlConnection(connectionString);
+                string selectQuery = "SELECT * FROM Patients";
+                SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
+
+                DataTable dataTable = new DataTable();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand);
+                sqlDataAdapter.Fill(dataTable);
+                datagrid.ItemsSource = dataTable.DefaultView;
+              //  ExportDataTableToCsv(dataTable, filepath);
+            }
         }
 
-        private void Search_Click(object sender, RoutedEventArgs e)
+
+        private void ExportDataTableToCsv(DataTable dataTable, string filePath)
         {
+            // Create a StreamWriter to write to the CSV file
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                // Write the header row with column names
+                for (int i = 0; i < dataTable.Columns.Count; i++)
+                {
+                    writer.Write(dataTable.Columns[i].ColumnName);
+                    if (i < dataTable.Columns.Count - 1)
+                    {
+                        writer.Write(",");
+                    }
+                }
+                writer.WriteLine();
+
+                // Write the data rows
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    for (int i = 0; i < dataTable.Columns.Count; i++)
+                    {
+                        writer.Write(row[i].ToString());
+                        if (i < dataTable.Columns.Count - 1)
+                        {
+                            writer.Write(",");
+                        }
+                    }
+                    writer.WriteLine();
+                }
+            }
+            MessageBox.Show("File exported");
+        }
+
+            private void Search_Click(object sender, RoutedEventArgs e)
+        {
+
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+
             getPatients();
+            getUserDocsAsync(userID);
 
           
 
@@ -138,7 +214,7 @@ namespace Archz1._0
 
              var containerName = "testarch";
              //var containerClient = blobServiceClient.GetBlobContainerClient(containerName);
-             var blobName = "C:/Users/Lebogang/Desktop/9901195058086/kamo.txt"; // Replace with the name of the file you're searching for
+             var blobName = "C:/KamvaCloud/usersFiles/"+id+".pdf"; // Replace with the name of the file you're searching for
 
             // var blobClient = containerClient.GetBlobClient(blobName);
 
@@ -173,7 +249,15 @@ namespace Archz1._0
             // Print or use the blob's URI
             MessageBox.Show("Blob URL: " + blobUri.ToString());
 
+            link=blobUri.ToString();
 
+
+        }
+
+        private void btnViewFile_Click(object sender, RoutedEventArgs e)
+        {
+            PDFViewer p = new PDFViewer(link);
+            p.Show();
         }
     }
 }

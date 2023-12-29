@@ -25,9 +25,11 @@ namespace Archz1._0
     /// </summary>
     public partial class Add_Record : Window
     {
+        strings strings = new strings();
+        string conn;
 
-        public string connectionString = "Server=tcp:kamvaarchztest.database.windows.net,1433;Initial Catalog=TestDatabase;Persist Security Info=False;User ID=lebogang@kamvacloud.co.za;Password=#Kamo13137;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
 
+        public string connectionString;
 
         string storageAccountName = "teststorelk";
         string storageAccountKey = "XJk7EfgIJCCsWSMgJCZAzSKWvVYLp+Lq8gfimrdd0r8uNS5jeaGD0LEdn0vrW1DGF+52D5KuujiF+AStsnh1Dw==";
@@ -46,7 +48,7 @@ namespace Archz1._0
 
         private void addUser()
         {
-
+            connectionString = strings.connectionStringClients;
             string Id = txtID.Text.Trim();
             string firstName = txtName.Text.Trim();
             string surname = txtSurname.Text.Trim();
@@ -63,7 +65,7 @@ namespace Archz1._0
                 {
                     connection.Open();
 
-                    string insertQuery = "INSERT INTO Patients (PatientID, FirstName, surname,Gender,Race,VisitReason) VALUES (@PatientID, @FirstName, @surname, @Gender, @Race, @VisitReason)";
+                    string insertQuery = "INSERT INTO Clients (PatientID, FirstName, surname,Gender,Race,VisitReason) VALUES (@PatientID, @FirstName, @surname, @Gender, @Race, @VisitReason)";
 
                     using (SqlCommand command = new SqlCommand(insertQuery, connection))
                     {
@@ -78,7 +80,7 @@ namespace Archz1._0
                         command.ExecuteNonQuery();
 
                         MessageBox.Show("Complete");
-                        UploadFileToBlobStorageAsync(selectedFilePath, filename);
+                        //UploadFileToBlobStorageAsync(selectedFilePath, filename);
                     }
                     connection.Close();
 
@@ -95,15 +97,15 @@ namespace Archz1._0
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (SelectedFileLabel.Text == "")
-            {
-                MessageBox.Show("Please upload file!");
-            }
-            else
-            {
+            //if (SelectedFileLabel.Text == "")
+            //{
+            //    MessageBox.Show("Please upload file!");
+            //}
+            //else
+            //{
                 addUser();
                 //UploadFileToBlobStorageAsync(selectedFilePath, filename);
-            }
+            //}
         }
 
 
