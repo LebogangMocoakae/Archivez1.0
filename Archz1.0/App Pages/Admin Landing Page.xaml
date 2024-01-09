@@ -1,0 +1,21 @@
+﻿<Window x:Class="Archz1._0.Admin_Landing_Page"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Archz1._0"
+        mc:Ignorable="d"
+        Title="Admin_Landing_Page" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="24,37,0,0" TextWrapping="NoWrap" Text="Kamva Cloud Technologies Admin" FontSize="20" VerticalAlignment="Top"/>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Margin="24,12,0,0" VerticalAlignment="Top" Click="backButton_Click"/>
+        <ComboBox Name="dropMenu"  HorizontalAlignment="Left" Margin="24,95,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="dropMenu_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,82,0,0" TextWrapping="Wrap" FontSize="9" Text="Select Database" VerticalAlignment="Top"/>
+        <Button x:Name="btnAddRecord" Content="Add Record" HorizontalAlignment="Left" Margin="345,130,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnAddRecord_Click"/>
+        <Button x:Name="btnEditRecord" Content="Edit Record" HorizontalAlignment="Left" Margin="345,190,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnEditRecord_Click"/>
+        <Button x:Name="btnViewRecord" Content="View Records" HorizontalAlignment="Left" Margin="345,250,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnViewRecord_Click"/>
+        <Button x:Name="btnLogOut" Content="Log Out" HorizontalAlignment="Left" Margin="345,310,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <TextBlock x:Name="LoginUser" HorizontalAlignment="Left" Margin="24,65,0,0" TextWrapping="NoWrap" FontSize="14" Text="user" VerticalAlignment="Top" Width="300"/>
+
+    </Grid>
+</Window>

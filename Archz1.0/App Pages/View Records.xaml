@@ -1,0 +1,20 @@
+﻿<Window x:Class="Archz1._0.View_Records"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Archz1._0"
+        mc:Ignorable="d"
+        Title="View_Records" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="30,10,0,0" TextWrapping="Wrap" Text="Search by:" VerticalAlignment="Top"/>
+        <RadioButton x:Name="CBID" GroupName="options" Content="ID NUMBER" HorizontalAlignment="Left" Margin="30,47,0,0" VerticalAlignment="Top" Checked="CBID_Checked"/>
+        <RadioButton x:Name="CBFirstName" GroupName="options" Content="FIRSTNAME" HorizontalAlignment="Left" Margin="30,67,0,0" VerticalAlignment="Top" Checked="CBFirstName_Checked"/>
+        <RadioButton x:Name="CBSurname" GroupName="options" Content="SURNAME" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" Checked="CBSurname_Checked"/>
+        <TextBox x:Name="txtBox" HorizontalAlignment="Left" Margin="30,120,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Search" Content="SEARCH" HorizontalAlignment="Left" Margin="48,154,0,0" VerticalAlignment="Top" Width="65" Click="Search_Click"/>
+        <DataGrid x:Name="datagrid" AutoGenerateColumns="True"  RenderTransformOrigin="0.499,0.566" Margin="182,0,0,0"/>
+        <Button x:Name="btnViewFile" Content="view file" HorizontalAlignment="Left" Margin="57,203,0,0" VerticalAlignment="Top" Click="btnViewFile_Click"/>
+
+    </Grid>
+</Window>

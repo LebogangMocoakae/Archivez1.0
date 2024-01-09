@@ -1,0 +1,29 @@
+﻿<Window x:Class="Archz1._0.Edit_Record"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Archz1._0"
+        mc:Ignorable="d"
+        Title="Edit_Record" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="21,21,0,0" TextWrapping="Wrap" Text="Please enter ID number" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtIDSearch" HorizontalAlignment="Left" Margin="21,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="38,88,0,0" VerticalAlignment="Top" Width="78" Click="Button_Click"/>
+
+        <TextBox x:Name="txtName" HorizontalAlignment="Center" Margin="0,120,0,0" TextWrapping="Wrap" TextAlignment="Center"  VerticalAlignment="Top" Width="291" Tag="name"/>
+        <TextBox x:Name="txtSurname" HorizontalAlignment="Center" Margin="0,160,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Center" Foreground="Gray" IsEnabled="False" Margin="0,200,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
+        <TextBox x:Name="txtGender" HorizontalAlignment="Center" Margin="0,240,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
+        <TextBox x:Name="txtRace" HorizontalAlignment="Center" Margin="0,280,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="291"/>
+        <TextBox x:Name="txtVisitReason" HorizontalAlignment="Center" Margin="0,320,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="292" Height="68"/>
+        <Button x:Name="btnSubmit" Content="SUBMIT" HorizontalAlignment="Center" Margin="0,400,0,0" VerticalAlignment="Top" Click="SubmitButton_Click_1" />
+        <TextBlock HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" Text="NAME" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,140,0,0" TextWrapping="Wrap" Text="SURNAME" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,180,0,0" TextWrapping="Wrap" Text="ID NUMBER" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,220,0,0" TextWrapping="Wrap" Text="GENDER" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,260,0,0" TextWrapping="Wrap" Text="RACE" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,300,0,0" TextWrapping="Wrap" Text="REASON FOR VISIT" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
