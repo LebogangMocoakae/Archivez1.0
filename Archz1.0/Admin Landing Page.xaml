@@ -15,6 +15,9 @@
         <Button x:Name="btnEditRecord" Content="Edit Record" HorizontalAlignment="Left" Margin="345,190,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnEditRecord_Click"/>
         <Button x:Name="btnViewRecord" Content="View Records" HorizontalAlignment="Left" Margin="345,250,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnViewRecord_Click"/>
         <Button x:Name="btnLogOut" Content="Log Out" HorizontalAlignment="Left" Margin="345,310,0,0" VerticalAlignment="Top" Width="100" Height="30"/>
+        <Button x:Name="btnCreateSchema" Content="Create Schema" HorizontalAlignment="Left" Margin="345,360,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnCreateSchema_Click"/>
+        <Button x:Name="btnAddRec" Content="Add rec" HorizontalAlignment="Left" Margin="345,130,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="btnAddRec_Click"/>
+
         <TextBlock x:Name="LoginUser" HorizontalAlignment="Left" Margin="24,65,0,0" TextWrapping="NoWrap" FontSize="14" Text="user" VerticalAlignment="Top" Width="300"/>
 
     </Grid>

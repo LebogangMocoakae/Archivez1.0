@@ -25,7 +25,7 @@ namespace Archz1._0
     /// </summary>
     public partial class Add_Record : Window
     {
-        strings strings = new strings();
+        static strings strings = new strings();
         string conn;
 
 
@@ -36,12 +36,14 @@ namespace Archz1._0
         string containerName = "testarch";
         string selectedFilePath = string.Empty;
         string filename = string.Empty;
-
+        string connectionStringDatabases = strings.connectionString;
         public Add_Record(string user, string database)
         {
             InitializeComponent();
             LoginUser.Text = "Logged in user: "+ user;
             selected_database.Text = "Selected Database: " + database;
+
+
 
 
         }

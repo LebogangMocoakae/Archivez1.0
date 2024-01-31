@@ -105,5 +105,17 @@ namespace Archz1._0
             View_Records n = new View_Records();
             n.Show();
         }
+
+        private void btnCreateSchema_Click(object sender, RoutedEventArgs e)
+        {
+            Schema_Wizard wizard = new Schema_Wizard();
+            wizard.Show();
+        }
+
+        private void btnAddRec_Click(object sender, RoutedEventArgs e)
+        {
+            Add_Custom_Record add_Custom_Record = new Add_Custom_Record();
+            add_Custom_Record.Show();
+        }
     }
 }

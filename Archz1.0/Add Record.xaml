@@ -26,6 +26,7 @@
         <TextBlock HorizontalAlignment="Center" Margin="0,300,0,0" TextWrapping="Wrap" Text="REASON FOR VISIT" VerticalAlignment="Top"/>
         <Button x:Name="btnUploadFiles" Content="upload files" HorizontalAlignment="Left" Margin="20,130,0,0" VerticalAlignment="Top" Click ="btnUploadFiles_Click" />
         <TextBlock x:Name="SelectedFileLabel" IsEnabled="False"  HorizontalAlignment="Left" Margin="24,167,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Height="22" Width="96"/>
+        <ComboBox Name="dropMenu" HorizontalAlignment="Left" Margin="24,100,0,0" VerticalAlignment="Top" Width="120"/>
 
 
     </Grid>

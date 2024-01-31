@@ -1,0 +1,20 @@
+﻿<Window x:Class="Archz1._0.Add_Custom_Record"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Archz1._0"
+        mc:Ignorable="d"
+        Title="Add_Custom_Record" Height="450" Width="800">
+    <Grid>
+        <StackPanel x:Name="stackPanel" Margin="10">
+            <!-- Add other UI elements here if needed -->
+            <Label Content="Select Table" Width="80"/>
+            <ComboBox  Name="databaseTables" Width="90"/>
+            <Button Content="Load Data" Click="OnButtonClick" Margin="5"/>
+            <Button x:Name="btnSaveData" Content="Save" Click="SaveDataClick" Margin="5" IsEnabled="False"/>
+            
+        </StackPanel>
+        
+    </Grid>
+</Window>
