@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: windows-latest
+  vmImage: 'windows-latest'
 
 steps:
 - task: UseDotNet@2
@@ -16,11 +16,8 @@ steps:
     version: '3.x'
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
+- script: dotnet restore
+  displayName: 'Restore dependencies'
 
-- script: |
-     dotnet restore
-  displayName: 'Restore dependenciest'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
+- script: dotnet build --configuration Release
+  displayName: 'Build'
